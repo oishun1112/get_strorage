@@ -2,7 +2,7 @@ require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-web3");
 require("dotenv").config();
 
-const { KEY, INFURA_KEY } = process.env;
+const { KEY, INFURA_KEY, SHIBUYA_URL } = process.env;
 
 module.exports = {
   solidity: "0.8.4",
@@ -21,6 +21,10 @@ module.exports = {
       url: `https://ropsten.infura.io/v3/${INFURA_KEY}`,
       gas: 6e6,
       gasPrice: 1e10, //10Gwei
+      accounts: [`0x${KEY}`],
+    },
+    shibuya: {
+      url: SHIBUYA_URL,
       accounts: [`0x${KEY}`],
     },
   },
